@@ -1,6 +1,5 @@
 package com.fastcredit.fcbank.repository
 
-import android.util.Log
 import com.fastcredit.fcbank.common.extensions.getResult
 import com.fastcredit.fcbank.common.networking.Resource
 import com.fastcredit.fcbank.data.model.contract.Loans
