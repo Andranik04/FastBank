@@ -12,7 +12,7 @@ import javax.inject.Inject
 /**
  * Created by Sargis Khlopuzyan on 4/7/2022.
  */
-    class `NetworkConnectionInterceptor` @Inject constructor(private val context: Context) : Interceptor {
+class NetworkConnectionInterceptor @Inject constructor(private val context: Context) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
 

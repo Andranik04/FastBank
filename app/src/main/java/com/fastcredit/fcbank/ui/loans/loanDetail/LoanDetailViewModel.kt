@@ -15,37 +15,6 @@ class LoanDetailViewModel @Inject constructor(
     private val loansRepository: LoansRepository
 ) : BaseViewModel() {
 
-    private val _stateFlowLoans = MutableStateFlow<Loans?>(null)
-    val stateFlowLoans: StateFlow<Loans?> = _stateFlowLoans
 
-    private val _stateFlowLoading = MutableStateFlow<Boolean>(false)
-    val stateFlowLoading: StateFlow<Boolean> = _stateFlowLoading
-
-    init {
-        viewModelScope.launch {
-            loadLoans(langId = 1)
-        }
-    }
-
-    private suspend fun loadLoans(langId: Long) {
-        _stateFlowLoading.value = false
-
-        val response = loansRepository.getContracts(langId = 1)
-        _stateFlowLoading.value = false
-
-        when (response) {
-            is Resource.Success -> {
-                Log.e("LOG_TAG", "Success")
-                _stateFlowLoans.value
-            }
-            is Resource.Error -> {
-                Log.e("LOG_TAG", "Error : ${response.message}")
-            }
-            is Resource.Loading -> {
-                Log.e("LOG_TAG", "Loading")
-            }
-        }
-
-    }
 
 }

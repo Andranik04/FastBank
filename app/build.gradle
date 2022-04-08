@@ -52,6 +52,7 @@ dependencies {
     // Material Design
     implementation 'com.google.android.material:material:1.5.0'
     implementation "androidx.constraintlayout:constraintlayout:$androidx_contraintlayout_version"
+    implementation "androidx.recyclerview:recyclerview:$androidx_recyclerview_version"
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     // Activity ktx for viewModels()

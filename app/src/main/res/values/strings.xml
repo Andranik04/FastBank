@@ -8,5 +8,7 @@
     <string name="menu">Menu</string>
     <string name="history">History</string>
     <string name="chat">Chat</string>
-    <string name="title_customdynamicfeature">CustomDinamicFeature</string>
+
+    <string name="my_loans">"My Loans"</string>
+    <string name="my_guaranteed_loans">"My Guaranteed Loans"</string>
 </resources>

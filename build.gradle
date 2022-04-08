@@ -17,6 +17,7 @@ buildscript {
         kotlin_version = '1.6.10'
         epoxy_version = '3.1.0'
         butterknife_version = '10.0.0'
+        androidx_recyclerview_version = '1.2.1'
         glide_version = '4.13.1'
         firestore_version = '24.1.0'
         timber_version = '5.0.1'

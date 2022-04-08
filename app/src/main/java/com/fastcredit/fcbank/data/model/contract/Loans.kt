@@ -14,7 +14,7 @@ data class Loans(
     val contracts: List<Contract>? = null,
 
     @SerialName("GuaranteedContracts")
-    val guaranteedContracts: List<GuaranteedContract>? = null,
+    val guaranteedContracts: List<Contract>? = null,
 
     @SerialName("ResultCode")
     val resultCode: Int? = null,

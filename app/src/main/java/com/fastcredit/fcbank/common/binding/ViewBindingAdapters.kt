@@ -3,9 +3,12 @@ package com.fastcredit.fcbank.common.binding
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.annotation.Nullable
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
+import com.fastcredit.fcbank.common.BindableAdapter
 import com.fastcredit.fcbank.common.extensions.setVisibleOrGone
 import com.fastcredit.fcbank.common.extensions.setVisibleOrInvisible
 import kotlinx.coroutines.flow.StateFlow
@@ -22,6 +25,12 @@ fun ProgressBar.bindVisibleOrGone(show: StateFlow<Boolean>) {
     }
 }
 
+@BindingAdapter("data")
+fun <T> RecyclerView.bindRecyclerViewData(@Nullable items: T?) {
+    @Suppress("UNCHECKED_CAST")
+    (adapter as? BindableAdapter<T>)?.setItems(items)
+}
+
 @BindingAdapter("visibleOrInvisible")
 fun ProgressBar.bindVisibleOrInvisible(show: StateFlow<Boolean>) {
     show.value.also {
@@ -36,12 +45,12 @@ fun TextView.bindText(txt: StateFlow<String>) {
     }
 }
 
-@BindingAdapter("glideSrc")
-fun setImageViewResource(imageView: ImageView, publicImageUrl: String?) {
+@BindingAdapter("src")
+fun ImageView.bindImageViewResource(publicImageUrl: String?) {
     publicImageUrl?.let {
-        Glide.with(imageView.context)
+        Glide.with(this.context)
             .load(publicImageUrl)
             .transition(withCrossFade())
-            .into(imageView)
+            .into(this)
     }
 }
