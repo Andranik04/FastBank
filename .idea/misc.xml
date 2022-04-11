@@ -40,6 +40,15 @@
         <entry key="..\:/Users/SargisKhlopuzyan/AndroidStudioProjects/FastBank/loans_overview/src/main/res/layout/activity_loans_overview.xml" value="0.2013681060282172" />
         <entry key="..\:/Users/SargisKhlopuzyan/AndroidStudioProjects/FastBank/loans_overview/src/main/res/layout/fragment_loans.xml" value="0.2013681060282172" />
         <entry key="..\:/Users/SargisKhlopuzyan/AndroidStudioProjects/FastBank/payment/src/main/res/layout/fragment_payment.xml" value="0.1" />
+        <entry key="..\:/Users/artur/Documents/GitHub/FastBank/app/src/main/res/drawable/background_bottom_button.xml" value="0.2675" />
+        <entry key="..\:/Users/artur/Documents/GitHub/FastBank/app/src/main/res/drawable/background_transparent.xml" value="0.2675" />
+        <entry key="..\:/Users/artur/Documents/GitHub/FastBank/app/src/main/res/drawable/ic_autopay.xml" value="0.2675" />
+        <entry key="..\:/Users/artur/Documents/GitHub/FastBank/app/src/main/res/drawable/ic_chat.xml" value="0.2675" />
+        <entry key="..\:/Users/artur/Documents/GitHub/FastBank/app/src/main/res/layout/fragment_loan_detail.xml" value="0.8" />
+        <entry key="..\:/Users/artur/Documents/GitHub/FastBank/app/src/main/res/layout/item_loan_detail.xml" value="0.559375" />
+        <entry key="..\:/Users/artur/Documents/GitHub/FastBank/app/src/main/res/layout/layout_loans_bank_offer.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/artur/Documents/GitHub/FastBank/app/src/main/res/layout/layout_loans_header.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/artur/Documents/GitHub/FastBank/app/src/main/res/layout/layout_loans_item.xml" value="0.72" />
       </map>
     </option>
   </component>
