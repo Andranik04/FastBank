@@ -11,4 +11,12 @@
 
     <string name="my_loans">"My Loans"</string>
     <string name="my_guaranteed_loans">"My Guaranteed Loans"</string>
+
+    <string name="make_payment">Make payment</string>
+    <string name="set_auto_payment"> <u>Set auto payment</u></string>
+    <string name="contract">Contract</string>
+    <string name="annual">Annual</string>
+    <string name="service_fee">Service fee</string>
+    <string name="next_payment_date">Next payment date</string>
+    <string name="next_payment_amount">Next payment amount</string>
 </resources>

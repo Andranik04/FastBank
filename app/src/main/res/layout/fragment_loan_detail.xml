@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -14,32 +16,346 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/color_background"
         tools:context=".ui.loans.loanDetail.LoanDetailFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvBreakingNews"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:paddingBottom="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ProgressBar
-            android:id="@+id/paginationProgressBar"
-            style="?attr/progressBarStyle"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/loanDetailsGuideline1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.21"
+            app:layout_constraintTop_toTopOf="@+id/loanDetailsGuideline1"
+            app:layout_constraintWidth_percent="0.9"
+            card_view:cardCornerRadius="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/startGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.04" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/endGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.96" />
+
+                <TextView
+                    android:id="@+id/contract"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@string/contract"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_text_grey_secondary"
+                    app:autoSizeMaxTextSize="16sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/annual"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="spread"
+                    app:layout_constraintVertical_weight="1" />
+
+                <TextView
+                    android:id="@+id/annual"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@string/annual"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_text_grey_secondary"
+                    app:autoSizeMaxTextSize="16sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/serviceFee"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/contract"
+                    app:layout_constraintVertical_weight="1"/>
+
+                <TextView
+                    android:id="@+id/serviceFee"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@string/service_fee"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_text_grey_secondary"
+                    app:autoSizeMaxTextSize="16sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintTop_toBottomOf="@+id/annual"
+                    app:layout_constraintVertical_weight="1"
+                    app:layout_constraintWidth_percent="0.88" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/color_gray_main"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/contract"
+                    app:layout_constraintWidth_percent="0.88" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/color_gray_main"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/annual"
+                    app:layout_constraintWidth_percent="0.88" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/color_gray_main"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/serviceFee"
+                    app:layout_constraintWidth_percent="0.88" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/color_text_grey_secondary"
+                    app:autoSizeMaxTextSize="16sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline"
+                    app:layout_constraintTop_toTopOf="@+id/contract"
+                    app:layout_constraintBottom_toBottomOf="@+id/contract"
+                    app:layout_constraintWidth_percent="0.88"
+                    tools:text="TP22/10440" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/color_text_grey_secondary"
+                    app:autoSizeMaxTextSize="16sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline"
+                    app:layout_constraintTop_toTopOf="@+id/annual"
+                    app:layout_constraintBottom_toBottomOf="@+id/annual"
+                    tools:text="0%"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/color_text_grey_secondary"
+                    app:autoSizeMaxTextSize="16sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline"
+                    app:layout_constraintTop_toTopOf="@+id/serviceFee"
+                    app:layout_constraintBottom_toBottomOf="@+id/serviceFee"
+                    tools:text="2630.00 AMD" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/loanDetailsGuideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.63" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.14"
+            app:layout_constraintTop_toTopOf="@+id/loanDetailsGuideline2"
+            card_view:cardCornerRadius="15dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/startGuideline1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.04" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/endGuideline1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.96" />
+
+                <TextView
+                    android:id="@+id/nextPaymentDate"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@string/next_payment_date"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_text_grey_secondary"
+                    app:autoSizeMaxTextSize="16sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintHeight_percent="0.5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline1"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline1" />
+
+                <TextView
+                    android:id="@+id/nextPaymentAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/next_payment_amount"
+                    android:textColor="@color/color_text_grey_secondary"
+                    app:autoSizeMaxTextSize="16sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintHeight_percent="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline1"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/nextPaymentDate" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/color_gray_main"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nextPaymentDate"
+                    app:layout_constraintWidth_percent="0.88" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/color_gray_main"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nextPaymentAmount"
+                    app:layout_constraintWidth_percent="0.88" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/color_text_grey_secondary"
+                    app:autoSizeMaxTextSize="16sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline1"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline1"
+                    app:layout_constraintTop_toTopOf="@+id/nextPaymentDate"
+                    app:layout_constraintBottom_toBottomOf="@+id/nextPaymentDate"
+                    app:layout_constraintWidth_percent="0.88"
+                    tools:text="04.04.2022" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/color_text_grey_secondary"
+                    app:autoSizeMaxTextSize="16sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline1"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline1"
+                    app:layout_constraintTop_toTopOf="@+id/nextPaymentAmount"
+                    app:layout_constraintBottom_toBottomOf="@+id/nextPaymentAmount"
+                    tools:text="14,975.70 AMD"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/setAutoPaymentGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.82" />
+
+        <TextView
+            android:id="@+id/setAutoPayment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/set_auto_payment"
+            android:textColor="@color/color_blue_main"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintHeight_percent="0.03"
+            app:layout_constraintTop_toTopOf="@+id/setAutoPaymentGuideline" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/makePaymentGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.89"  />
+
+        <View
+            android:id="@+id/makePaymentBackground"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_bottom_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.075"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/makePaymentGuideline"
+            app:layout_constraintWidth_percent="0.9" />
+
+        <TextView
+            android:id="@+id/makePayment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/make_payment"
+            android:textColor="@android:color/white"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/makePaymentBackground"
+            app:layout_constraintEnd_toEndOf="@+id/makePaymentBackground"
+            app:layout_constraintHeight_percent="0.035"
+            app:layout_constraintStart_toStartOf="@+id/makePaymentBackground"
+            app:layout_constraintTop_toTopOf="@+id/makePaymentBackground" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
